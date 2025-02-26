@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') -%>
+    <div class="container">
+        <h1>All Products</h1>
+        <div class="row"> <!-- Row dışarıda olmalı! -->
+          <% products.forEach((product, index) => { %>
+            <div class="col-md-3 mb-5"> <!-- 4 kart için 12/4 = col-3 -->
+              <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><%= product.name %></li>
+                  <li class="list-group-item"><%= product.description %></li>
+                  <li class="list-group-item d-flex justify-content-between"><%= product.price %> 
+                    <a href="products/<%=product._id %>" class="btn btn-primary">Go Product</a></li>          
+                </ul>
+              </div>
+            </div>
+            <% if ((index + 1) % 4 === 0) { %> 
+              </div><div class="row"> <!-- 4 üründen sonra yeni bir satır aç -->
+            <% } %>
+          <% }) %>
+        </div> <!-- Son kapanış -->
+      </div>

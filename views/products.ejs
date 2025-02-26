@@ -8,25 +8,27 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Products</h1>
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= products.name %></h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary"><%= products.price %></h6>
-                      <p class="card-text"><%= products.description  %></p>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Category: <%= products.category%></li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                      </ul>
-                      <a href="/products/<%= products._id %>" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div> 
+
+
+<div class="container">
+  <h1>All Products</h1>
+  <div class="row"> <!-- Row dışarıda olmalı! -->
+    <% products.forEach((product, index) => { %>
+      <div class="col-md-3 mb-5"> <!-- 4 kart için 12/4 = col-3 -->
+        <div class="card" style="width: 18rem;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= product.name %></li>
+            <li class="list-group-item"><%= product.description %></li>
+            <li class="list-group-item d-flex justify-content-between"><%= product.price %> 
+              <a href="products/<%=product._id %>" class="btn btn-primary">Go Product</a></li>          
+          </ul>
+        </div>
+      </div>
+      <% if ((index + 1) % 4 === 0) { %> 
+        </div><div class="row"> <!-- 4 üründen sonra yeni bir satır aç -->
+      <% } %>
+    <% }) %>
+  </div> <!-- Son kapanış -->
 </div>
 
     
