@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose')
 const Product = require('./models/product')
+const engine = require('ejs-mate'); // poilerplate -> layout kullanabilmek icin
 
 mongoose.connect('mongodb://127.0.0.1:27017/ecommerce')
 .then(() => console.log('MongoDB connected'))
@@ -13,8 +14,10 @@ const productRoutes = require('./routes/products'); // Import product routes
 
 // Set up view engine
 app.set('view engine', 'ejs');
-
+app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
