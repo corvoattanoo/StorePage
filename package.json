@@ -9,10 +9,18 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "algoliasearch": "^5.20.3",
+    "cloudinary": "^1.41.3",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^4.21.2",
+    "instantsearch.css": "^8.5.1",
+    "instantsearch.js": "^4.77.3",
+    "method-override": "^3.0.0",
     "mongoose": "^8.10.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^3.1.9"
   }
 }
