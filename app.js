@@ -5,6 +5,7 @@ const Product = require('./models/product');
 const engine = require('ejs-mate');
 const methodOverride = require('method-override');
 const session = require('express-session')
+const cookieParser = require('cookie-parser');
 const app = express();
 
 // MongoDB Connection
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
+app.use(cookieParser());
 // Import Routes
 const productRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
@@ -27,7 +29,7 @@ app.set('view engine', 'ejs');
 app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware
+
 
 
 
@@ -51,6 +53,7 @@ const sessionConfig = {
 }
 
 app.use(session(sessionConfig))
+
 
 // Category route
 app.get('/products/category/:categoryName', async (req, res) => {

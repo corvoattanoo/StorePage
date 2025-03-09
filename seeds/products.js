@@ -54,11 +54,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecommerce', {
 // console.log('seed data inserted!')
 // mongoose.connection.close();
 // }
+
 const updateProductImages = async () => {
-    await Products.updateMany({}, { $set: { image: 'https://images.unsplash.com/photo-1569183091671-696402586b9c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' } });
+    await Products.updateMany({}, { $set: { owner: '67c97ffe95fb907419231c27' } });
     console.log('All product images updated!');
     mongoose.connection.close();
 }
 updateProductImages();
+
+
 // seedProducts()
   

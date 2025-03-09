@@ -10,6 +10,10 @@ const productsSchema = new Schema({
         type: Number,
         required: true
     },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
     description: String,
     image: String,
     category: String,
